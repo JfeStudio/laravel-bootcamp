@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -100,6 +101,6 @@ class TaskController extends Controller
     {
         $this->authorize('delete', $task);
         $task->delete();
-        return redirect(route('tasks.index'));
+        return redirect(route('tasks.index'))->with('success', 'data berhasil di hapus!');
     }
 }
